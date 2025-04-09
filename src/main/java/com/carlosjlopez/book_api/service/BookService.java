@@ -37,12 +37,28 @@ public class BookService {
 
         Book res = bookRepo.getBooks().stream()
                 .filter((x) -> x.getId() == id)
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("Book not found"));
 
         return res;
     }
 
 
+    /**
+     * Method provides the ability to add a book into the repository
+     * @param book
+     */
     public void addBook(Book book) {
         bookRepo.addBook(book);
+    }
+
+
+    /**
+     * Method provides the ability to delete a book by the ID
+     * @param id
+     */
+    public void deleteBookById(long id) {
+
+        bookRepo.deleteById(id);
     }
 }

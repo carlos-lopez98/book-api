@@ -23,4 +23,8 @@ public class BookRepo {
     public void addBook(Book book){
         books.add(book);
     }
+
+    public void deleteById(long id) {
+        books.removeIf((book) -> book.getId() == id);
+    }
 }
