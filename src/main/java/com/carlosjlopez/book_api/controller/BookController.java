@@ -3,10 +3,7 @@ package com.carlosjlopez.book_api.controller;
 import com.carlosjlopez.book_api.model.Book;
 import com.carlosjlopez.book_api.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,8 +18,13 @@ public class BookController {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/books/{id}")
+    @GetMapping("/{id}")
     public Book getBookById(@PathVariable("id") long id){
         return bookService.getBookById(id);
+    }
+
+    @PostMapping
+    public void addBook(@RequestBody Book book){
+        bookService.addBook(book);
     }
 }

@@ -34,9 +34,15 @@ public class BookService {
      * @return Book
      */
     public Book getBookById(long id) {
-        Book res = bookRepo.books.stream()
+
+        Book res = bookRepo.getBooks().stream()
                 .filter((x) -> x.getId() == id)
 
         return res;
+    }
+
+
+    public void addBook(Book book) {
+        bookRepo.addBook(book);
     }
 }
