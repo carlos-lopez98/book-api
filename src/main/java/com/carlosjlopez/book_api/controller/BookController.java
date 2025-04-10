@@ -4,6 +4,8 @@ import com.carlosjlopez.book_api.dto.BookDTO;
 import com.carlosjlopez.book_api.model.Book;
 import com.carlosjlopez.book_api.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,9 +20,16 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    /**
+     * API Method returns all books currently in our database
+     * @return
+     */
     @GetMapping
-    public List<Book> getAllBooks(){
-        return bookService.getAllBooks();
+    public ResponseEntity<List<Book>> getAllBooks(){
+        List<Book> books = bookService.getAllBooks();
+
+        ResponseEntity<List<Book>> booksResponse = new ResponseEntity<>(books,HttpStatus.OK);
+        return booksResponse;
     }
 
     @GetMapping("/{id}")
