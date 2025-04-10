@@ -37,10 +37,17 @@ public class BookController {
         return bookService.getBookById(id);
     }
 
+    /**
+     * Returns the book that was passed in, with a status code of OK if job was completed successfully
+     * @param bookIn
+     * @return
+     */
     @PostMapping
-    public void addBook(@RequestBody BookDTO bookIn){
+    public ResponseEntity<Book> addBook(@RequestBody BookDTO bookIn){
         Book book = bookService.createBook(bookIn);
         bookService.addBook(book);
+
+        return new ResponseEntity<>(book, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
