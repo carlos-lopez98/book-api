@@ -1,5 +1,6 @@
 package com.carlosjlopez.book_api.service;
 
+import com.carlosjlopez.book_api.dto.BookDTO;
 import com.carlosjlopez.book_api.model.Book;
 import com.carlosjlopez.book_api.repository.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,12 @@ import java.util.List;
 @Service
 public class BookService {
 
+    private final BookRepo bookRepo;
+
     @Autowired
-    private BookRepo bookRepo;
+    public BookService(BookRepo bookRepo){
+        this.bookRepo = bookRepo;
+    }
 
 
     //Returns a dummy book for now
@@ -60,5 +65,15 @@ public class BookService {
     public void deleteBookById(long id) {
 
         bookRepo.deleteById(id);
+    }
+
+
+    /**
+     * Turns our incoming BookDTO into a workable Book object
+     * @param bookIn
+     * @return
+     */
+    public Book createBook(BookDTO bookIn) {
+        return new Book(bookIn.getTitle(), bookIn.getAuthor());
     }
 }

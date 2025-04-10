@@ -1,5 +1,6 @@
 package com.carlosjlopez.book_api.controller;
 
+import com.carlosjlopez.book_api.dto.BookDTO;
 import com.carlosjlopez.book_api.model.Book;
 import com.carlosjlopez.book_api.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,8 +11,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/books")
 public class BookController {
+    private final BookService bookService;
+
     @Autowired
-    private BookService bookService;
+    public BookController(BookService bookService){
+        this.bookService = bookService;
+    }
 
     @GetMapping
     public List<Book> getAllBooks(){
@@ -24,7 +29,8 @@ public class BookController {
     }
 
     @PostMapping
-    public void addBook(@RequestBody Book book){
+    public void addBook(@RequestBody BookDTO bookIn){
+        Book book = bookService.createBook(bookIn);
         bookService.addBook(book);
     }
 
