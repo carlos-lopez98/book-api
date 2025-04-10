@@ -41,9 +41,6 @@ This project was created as a **review of Spring Boot fundamentals**. It reinfor
 
 A future project will include full database integration and persistence logic. Once complete, it will be linked here for reference.
 
-➡️ _Coming Soon_: [📦 Book Manager API + H2/PostgreSQL Integration (WIP)](https://github.com/yourusername/book-manager-db)  
-_(Link placeholder – update with your actual repo URL)_
-
 ---
 
 ## 🧪 How to Test
