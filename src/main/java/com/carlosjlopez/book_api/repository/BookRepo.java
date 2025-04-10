@@ -6,6 +6,9 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class acts as an in-memory database for the application
+ */
 @Repository
 public class BookRepo {
 

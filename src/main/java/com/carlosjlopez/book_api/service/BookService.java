@@ -25,9 +25,9 @@ public class BookService {
     }
 
 
-    //Returns a dummy book for now
     public List<Book> getAllBooks(){
-        return List.of(new Book("Microservices", "Sam Newman"));
+
+        return bookRepo.getBooks();
     }
 
 
