@@ -86,7 +86,7 @@ curl -X POST http://localhost:8080/books \
 ## 📥 Fork & Clone
 To clone the repository:
 ```bash
-git clone https://github.com/yourusername/book-manager-api.git
+git clone https://github.com/carlos-lopez98/book-manager-api.git
 cd book-api
 ./mvnw spring-boot:run
 ```
