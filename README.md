@@ -39,7 +39,7 @@ This project was created as a **review of Spring Boot fundamentals**. It reinfor
 - Applying proper dependency injection and layering
 - Writing maintainable code with clear separation of concerns
 
-A future project will include full database integration and persistence logic. Once complete, it will be linked here for reference.
+A future project will include full database integration and persistence logic. Once complete, it will be linked here for reference. (https://github.com/carlos-lopez98/task-api)
 
 ---
 
